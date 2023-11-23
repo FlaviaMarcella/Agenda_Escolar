@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:agenda_escola/assets/colors.dart';
+import 'package:agenda_escola/assets/images_path.dart';
 
 class CardLinks extends StatelessWidget {
   final Function onPressed;
@@ -9,50 +10,76 @@ class CardLinks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: AppColors.accentColor,
       elevation: 4.0,
-      margin: const EdgeInsets.all(16.0),
-      child: Column(
+      margin: const EdgeInsets.only(left: 16, right: 16),
+      child: Padding(
+        padding: EdgeInsets.only(bottom: 8, top: 8),
+        child: Column(
         children: [
-          const ListTile(
-            title: Text('Título do Card'),
-            subtitle: Text('Descrição do Card'),
-          ),
-          const Divider(),
-          Row(
+          Container(
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              color: AppColors.accentColor,
+            ),
+            child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _buildSubCard(context, AppColors.secondaryColor, 'Link 1'),
-              _buildSubCard(context, AppColors.detailsColor, 'Link 2'),
-              _buildSubCard(context, Colors.red, 'Link 3'),
+              _buildSubCard(context, AppColors.secondaryColor, 'Horários',
+                  ImagePaths.calendarImage),
+              _buildSubCard(
+                  context, Colors.red, 'Links', ImagePaths.linkBrokenImage),
+              _buildSubCard(
+                  context, AppColors.darkColor, 'SUAP', ImagePaths.suapImage),
             ],
           ),
+          )
         ],
       ),
-    );
+    ));
   }
 
-  Widget _buildSubCard(BuildContext context, Color color, String text) {
+  Widget _buildSubCard(
+      BuildContext context, Color color, String text, String src) {
     return GestureDetector(
-      onTap: () {
-        // Aqui, você pode redirecionar para outra página ou realizar uma ação
-        onPressed();
-      },
-      child: Card(
-        color: color,
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width / 4,
-          height: MediaQuery.of(context).size.width / 4,
-          child: Center(
-            child: Text(
-              text,
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+        onTap: () {
+          // Aqui, você pode redirecionar para outra página ou realizar uma ação
+          onPressed();
+        },
+        child: Card(
+          
+          color: color,
+          margin: EdgeInsets.zero,
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // Adicione a imagem aqui
+                    Image.asset(
+                      src, // Substitua pelo caminho da sua imagem
+                      width: 50, // Largura da imagem
+                      height: 50, // Altura da imagem
+                      fit: BoxFit.contain, // Ajuste da imagem
+                    ),
+                    const SizedBox(
+                        height: 4), // Espaçamento entre a imagem e o texto
+                    Text(
+                      text,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
