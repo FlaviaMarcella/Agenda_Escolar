@@ -10,19 +10,19 @@ class CardLinks extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 4.0,
-      margin: EdgeInsets.all(16.0),
+      margin: const EdgeInsets.all(16.0),
       child: Column(
         children: [
-          ListTile(
+          const ListTile(
             title: Text('Título do Card'),
             subtitle: Text('Descrição do Card'),
           ),
-          Divider(),
+          const Divider(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _buildSubCard(context, Colors.blue, 'Link 1'),
-              _buildSubCard(context, Colors.green, 'Link 2'),
+              _buildSubCard(context, AppColors.secondaryColor, 'Link 1'),
+              _buildSubCard(context, AppColors.detailsColor, 'Link 2'),
               _buildSubCard(context, Colors.red, 'Link 3'),
             ],
           ),
@@ -45,7 +45,7 @@ class CardLinks extends StatelessWidget {
           child: Center(
             child: Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
