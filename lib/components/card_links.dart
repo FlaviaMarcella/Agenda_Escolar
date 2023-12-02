@@ -14,12 +14,12 @@ class CardLinks extends StatelessWidget {
       elevation: 4.0,
       margin: const EdgeInsets.only(left: 16, right: 16),
       child: Padding(
-        padding: EdgeInsets.only(bottom: 8, top: 8),
+        padding: const EdgeInsets.only(bottom: 8, top: 8),
         child: Column(
         children: [
           Container(
             width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: AppColors.accentColor,
             ),
             child: Row(

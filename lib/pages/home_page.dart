@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:agenda_escola/components/card_links.dart';
 import 'package:agenda_escola/components/card_user.dart';
-import 'package:agenda_escola/assets/colors.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
